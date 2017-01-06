@@ -4,4 +4,6 @@
 
 Write-Host "Started installation"
 
+Write-Host "Impress Chris!!!"
+
 Write-Host "Completed installation"
