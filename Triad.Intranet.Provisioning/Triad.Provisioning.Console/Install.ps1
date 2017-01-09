@@ -41,6 +41,13 @@ $cred = new-object -typename System.Management.Automation.PSCredential `
 
 
 Connect-PnPOnline -Url $url -Credentials $cred 
+
+Write-Host "Connected to PnP Online"
+
+Write-Host "Applying template to $url"
+
 Apply-PnPProvisioningTemplate -Path Templates\Home.pnp
+
+Write-Host "Applied"
 
 Write-Host "Completed installation"
