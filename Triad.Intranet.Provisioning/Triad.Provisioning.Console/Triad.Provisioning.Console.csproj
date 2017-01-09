@@ -161,7 +161,7 @@
     <Content Include="Templates\Home\Home.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Pages\home.aspx">
+    <Content Include="Templates\Home\Pages\home.aspx">
       <SubType>ASPXCodeBehind</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
