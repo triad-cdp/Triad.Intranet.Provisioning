@@ -58,3 +58,5 @@ Apply-PnPProvisioningTemplate -Web $web -Path "$path\Templates\Home.xml" -Resour
 Write-Host "Applied"
 
 Write-Host "Completed installation"
+
+exit 0
