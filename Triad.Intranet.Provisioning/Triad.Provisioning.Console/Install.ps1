@@ -19,8 +19,6 @@ Write-Host "Tenant: $Tenant"
 
 Write-Host "Site: $Site"
 
-Dir
-
 $path = Split-Path -parent $MyInvocation.MyCommand.Definition
 
 if ($env:PSModulePath -notlike "*$path\Modules\*")
@@ -30,8 +28,6 @@ if ($env:PSModulePath -notlike "*$path\Modules\*")
 }
 
 Write-Host $env:PSModulePath
-
-Set-PnPTraceLog -On -Level Debug
 
 $url = $Tenant + $Site
 
@@ -50,7 +46,10 @@ Write-Host "Connected to PnP Online"
 
 Write-Host "Applying template to $url"
 
-Apply-PnPProvisioningTemplate -Path "$path\Templates\Home.pnp" -ExcludeHandlers Files
+Set-PnPTraceLog -On -Level Debug
+
+
+Apply-PnPProvisioningTemplate -Path "$path\Templates\Home.pnp" -ResourceFolder "$path\Templates" -ExcludeHandlers Files
 
 Write-Host "Applied"
 
