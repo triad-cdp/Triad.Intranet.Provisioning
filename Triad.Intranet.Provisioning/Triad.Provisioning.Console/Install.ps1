@@ -29,6 +29,18 @@ Write-Host $env:PSModulePath
 
 Set-PnPTraceLog -On -Level Debug
 
+$url = $Tenant + $Site
+
+$password = "W3ybr00k"
+$username = "matt@zephyrgroup.onmicrosoft.com"
+
+$password = convertto-securestring -String $password -AsPlainText -Force
+
+$cred = new-object -typename System.Management.Automation.PSCredential `
+         -argumentlist $username, $password
+
+
+Connect-PnPOnline -Url $url -Credentials $cred 
 Apply-PnPProvisioningTemplate -Path Templates\Home.pnp
 
 Write-Host "Completed installation"
