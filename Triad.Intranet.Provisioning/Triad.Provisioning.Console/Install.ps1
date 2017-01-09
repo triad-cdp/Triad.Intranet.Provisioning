@@ -34,10 +34,10 @@ $url = $Tenant + $Site
 $password = "W3ybr00k"
 $username = "matt@zephyrgroup.onmicrosoft.com"
 
-$password = convertto-securestring -String $password -AsPlainText -Force
+$encpassword = convertto-securestring -String $password -AsPlainText -Force
 
 $cred = new-object -typename System.Management.Automation.PSCredential `
-         -argumentlist $username, $password
+         -argumentlist $username, $encpassword
 
 
 Connect-PnPOnline -Url $url -Credentials $cred 
@@ -49,7 +49,7 @@ Write-Host "Applying template to $url"
 Set-PnPTraceLog -On -Level Debug
 
 
-#Apply-PnPProvisioningTemplate -Path "$path\Templates\Home.pnp" -ResourceFolder "$path\Templates" -ExcludeHandlers Files
+Apply-PnPProvisioningTemplate -Path "$path\Templates\Home.pnp" -ResourceFolder "$path\Templates" -ExcludeHandlers Files
 
 Write-Host "Applied"
 
