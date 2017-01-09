@@ -31,8 +31,12 @@
           <pnp:Properties>
             <pnp:Property Key="ContentTypeId" Value="{contenttypeid:Enterprise Wiki Page}" />
             <pnp:Property Key="Title" Value="Home" />
-            <pnp:Property Key="PublishingPageLayout" Value="{masterpagecatalog}/EnterpriseWiki.aspx, Basic Page" />
+            <pnp:Property Key="PublishingContact" Value="Matt@ZephyrGroup.onmicrosoft.com" />
+            <pnp:Property Key="PublishingPageLayout" Value="{masterpagecatalog}/EnterpriseWiki.aspx,  Basic Page" />
+            <pnp:Property Key="PublishingIsFurlPage" Value="False" />
+            <pnp:Property Key="RobotsNoIndex" Value="False" />
             <pnp:Property Key="PublishingPageContent" Value="&lt;p&gt;Use the Enterprise Wiki to create a single, go-to place for knowledge sharing and project management across the enterprise. Enterprise Wikis are simple to use, flexible, and lightweight in features. They are quick and easy to create, and you can easily add links to other information systems, corporate directories, or applications.&lt;/p&gt;&lt;p&gt;By using an Enterprise Wiki, you can avoid email overload, provide structure to new and existing information, and encourage collaboration. This helps build consensus among team members. &lt;/p&gt;&lt;p&gt;Working with content - text, graphics or video - is as easy as working in any word processing application, such as Microsoft Word. Use the Rich Text Editor to enhance the formatting of content, apply styles to text, reorganize or spell check your content, insert and format tables, and embed graphics or video. You can do all these things without leaving the wiki page.&lt;/p&gt;&lt;p&gt;Other things you can do when working with Enterprise Wikis&amp;#58; &lt;/p&gt;&lt;ul&gt;&lt;li&gt;Collaborate on wiki pages with other users&lt;/li&gt;&lt;li&gt;Comment on a wiki page to enable discussion about the contents of the page&lt;/li&gt;&lt;li&gt;Rate a wiki page to share your opinion about its content&lt;/li&gt;&lt;li&gt;Categorize wiki pages to enable users to quickly find information and share it with others&lt;/li&gt;&lt;/ul&gt;" />
+            <pnp:Property Key="TaskStatus" Value="Not Started" />
             <pnp:Property Key="BSN" Value="Microsoft.SharePoint.Client.FieldLookupValue" />
             <pnp:Property Key="_ListSchemaVersion" Value="132" />
             <pnp:Property Key="_Dirty" Value="0" />
@@ -40,25 +44,6 @@
           </pnp:Properties>
         </pnp:File>
       </pnp:Files>
-      <pnp:TermGroups>
-        <pnp:TermGroup Name="{sitecollectiontermgroupname}" Description="" SiteCollectionTermGroup="true">
-          <pnp:TermSets>
-            <pnp:TermSet Name="Site Navigation" Description="" IsAvailableForTagging="false">
-              <pnp:CustomProperties>
-                <pnp:Property Key="_Sys_Nav_AttachedWeb_OriginalUrl" Value="https://zephyrgroup.sharepoint.com{site}" />
-                <pnp:Property Key="_Sys_Nav_AttachedWeb_SiteId" Value="{sitecollectionid}" />
-                <pnp:Property Key="_Sys_Nav_AttachedWeb_Timestamp" Value="2017-01-03T16:29:27.5269873Z" />
-                <pnp:Property Key="_Sys_Nav_AttachedWeb_WebId" Value="{siteid}" />
-                <pnp:Property Key="_Sys_Nav_AttachedWebHistory" Value="" />
-                <pnp:Property Key="_Sys_Nav_IsNavigationTermSet" Value="True" />
-              </pnp:CustomProperties>
-            </pnp:TermSet>
-            <pnp:TermSet Name="Wiki Categories" Description="" IsOpenForTermCreation="true" />
-          </pnp:TermSets>
-          <pnp:Contributors />
-          <pnp:Managers />
-        </pnp:TermGroup>
-      </pnp:TermGroups>
     </pnp:ProvisioningTemplate>
   </pnp:Templates>
 </pnp:Provisioning>

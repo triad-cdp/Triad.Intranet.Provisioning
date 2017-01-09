@@ -53,7 +53,7 @@ $web = Get-PnPWeb
 dir "$path\Templates"
 
 
-Apply-PnPProvisioningTemplate -Web $web -Path "$path\Templates\Home.xml" -ResourceFolder "$path\Templates"
+Apply-PnPProvisioningTemplate -Web $web -Path "$path\Templates\Home.xml"
 
 Write-Host "Applied"
 
