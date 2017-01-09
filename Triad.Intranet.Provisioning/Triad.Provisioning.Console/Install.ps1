@@ -1,8 +1,19 @@
 #
-# Script1.ps1
+# Install.ps1
 #
 
+Param(
+  [string]$Tenant,
+  [string]$Site
+)
+
+
+
 Write-Host "Started installation"
+
+Write-Host "Tenant: $Tenant"
+
+Write-Host "Site: $site"
 
 Dir
 
