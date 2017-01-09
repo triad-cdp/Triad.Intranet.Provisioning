@@ -29,4 +29,6 @@ Write-Host $env:PSModulePath
 
 Set-PnPTraceLog -On -Level Debug
 
+Apply-PnPProvisioningTemplate -Path Templates\Home.pnp
+
 Write-Host "Completed installation"
