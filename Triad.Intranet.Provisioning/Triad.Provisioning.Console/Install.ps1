@@ -7,13 +7,17 @@ Param(
   [string]$Site
 )
 
-
+if ($Tenant -eq $null -or $Tenant -eq "")
+{
+	$Tenant = "https://zephyrgroup.sharepoint.com"
+	$Site =  "/sites/pieter"
+}
 
 Write-Host "Started installation"
 
 Write-Host "Tenant: $Tenant"
 
-Write-Host "Site: $site"
+Write-Host "Site: $Site"
 
 Dir
 
@@ -46,7 +50,7 @@ Write-Host "Connected to PnP Online"
 
 Write-Host "Applying template to $url"
 
-Apply-PnPProvisioningTemplate -Path Templates\Home.pnp
+Apply-PnPProvisioningTemplate -Path "$path\Templates\Home.pnp" -ExcludeHandlers Files
 
 Write-Host "Applied"
 

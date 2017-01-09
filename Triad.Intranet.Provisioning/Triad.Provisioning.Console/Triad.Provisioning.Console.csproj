@@ -158,6 +158,9 @@
     <Content Include="Modules\SharePointPnPPowerShellOnline\System.Web.Http.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Templates\home.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <None Include="App.config" />
     <Content Include="Install.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -174,7 +177,9 @@
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\TriadProvisioningConsole20170106013356 - Web Deploy.pubxml" />
     <None Include="Properties\webjob-publish-settings.json" />
-    <None Include="Templates\Home.pnp" />
+    <Content Include="Templates\Home.pnp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
