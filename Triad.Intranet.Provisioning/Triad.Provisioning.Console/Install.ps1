@@ -48,8 +48,10 @@ Write-Host "Applying template to $url"
 
 Set-PnPTraceLog -On -Level Debug
 
+$web = Get-PnPWeb
 
-Apply-PnPProvisioningTemplate -Path "$path\Templates\Home.pnp" -ResourceFolder "$path\Templates" -ExcludeHandlers Files
+
+Apply-PnPProvisioningTemplate -Web $web -Path "$path\Templates\Home.xml" -ResourceFolder "$path\Templates"
 
 Write-Host "Applied"
 

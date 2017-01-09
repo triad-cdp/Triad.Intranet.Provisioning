@@ -158,7 +158,7 @@
     <Content Include="Modules\SharePointPnPPowerShellOnline\System.Web.Http.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\home.aspx">
+    <Content Include="Templates\Pages\home.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <None Include="App.config" />
