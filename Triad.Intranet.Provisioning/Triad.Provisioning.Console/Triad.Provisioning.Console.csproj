@@ -163,6 +163,7 @@
     </Content>
     <Content Include="Templates\Pages\home.aspx">
       <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="App.config" />
     <Content Include="Install.ps1">
