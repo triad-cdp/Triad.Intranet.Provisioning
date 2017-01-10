@@ -6,7 +6,7 @@ Param(
   [string]$Tenant,
   [string]$Site,
   [string]$Username,
-  [string]$Password
+  $Password
 )
 
 Write-Host "Tenant: $Tenant"
