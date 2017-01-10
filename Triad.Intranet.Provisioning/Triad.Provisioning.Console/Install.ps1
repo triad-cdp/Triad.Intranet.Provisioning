@@ -21,7 +21,7 @@ Write-Host "Started installation"
 $path = Split-Path -parent $MyInvocation.MyCommand.Definition
 
 
-[xml]$config = Get-Content -Path $path config.xml
+[xml]$config = Get-Content -Path $path/config.xml
 
 
 
