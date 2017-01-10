@@ -62,6 +62,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="config.xml" />
     <Content Include="Modules\SharePointPnPPowerShellOnline\Microsoft.Data.Edm.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -178,6 +179,8 @@
     <Content Include="Modules\SharePointPnPPowerShellOnline\SharePointPnPPowerShellOnline.psm1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Modules\TriadOffice365\TriadOffice365.psm1" />
+    <None Include="Modules\TriadOffice365\TriadOffice365.psd1" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\TriadProvisioningConsole20170106013356 - Web Deploy.pubxml" />
     <None Include="Properties\webjob-publish-settings.json" />
@@ -197,7 +200,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Modules\TriadSQLServer\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebJobs.Publish.1.0.12\tools\webjobs.targets" Condition="Exists('..\packages\Microsoft.Web.WebJobs.Publish.1.0.12\tools\webjobs.targets')" />
   <PropertyGroup>

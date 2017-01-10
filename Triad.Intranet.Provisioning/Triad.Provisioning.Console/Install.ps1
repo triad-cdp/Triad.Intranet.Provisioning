@@ -13,13 +13,17 @@ if ($Tenant -eq $null -or $Tenant -eq "")
 	$Site =  "/sites/pieter"
 }
 
-Write-Host "Started installation"
-
 Write-Host "Tenant: $Tenant"
-
 Write-Host "Site: $Site"
 
+Write-Host "Started installation"
+
 $path = Split-Path -parent $MyInvocation.MyCommand.Definition
+
+
+[xml]$config = Get-Content -Path $path config.xml
+
+
 
 if ($env:PSModulePath -notlike "*$path\Modules\*")
 {
@@ -30,6 +34,9 @@ if ($env:PSModulePath -notlike "*$path\Modules\*")
 Write-Host $env:PSModulePath
 
 $url = $Tenant + $Site
+
+whoami
+
 
 $password = "W3ybr00k"
 $username = "matt@zephyrgroup.onmicrosoft.com"
