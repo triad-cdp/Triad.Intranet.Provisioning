@@ -9,12 +9,6 @@ Param(
   [string]$Password
 )
 
-if ($Tenant -eq $null -or $Tenant -eq "")
-{
-	$Tenant = "https://zephyrgroup.sharepoint.com"
-	$Site =  "/sites/pieter"
-}
-
 Write-Host "Tenant: $Tenant"
 Write-Host "Site: $Site"
 Write-Host "User: $Username"
@@ -43,13 +37,10 @@ $url = $Tenant + $Site
 whoami
 
 
-$password = "W3ybr00k"
-$username = "matt@zephyrgroup.onmicrosoft.com"
-
-$encpassword = convertto-securestring -String $password -AsPlainText -Force
+$encpassword = convertto-securestring -String $Password -AsPlainText -Force
 
 $cred = new-object -typename System.Management.Automation.PSCredential `
-         -argumentlist $username, $encpassword
+         -argumentlist $Username, $encpassword
 
 
 Connect-PnPOnline -Url $url -Credentials $cred 
