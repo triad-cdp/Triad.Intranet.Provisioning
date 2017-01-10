@@ -6,9 +6,11 @@ Param(
   [string]$Tenant,
   [string]$Site,
   [string]$Username,
-  $Password
+  [string]$Password
 )
 
+begin
+{
 Write-Host "Tenant: $Tenant"
 Write-Host "Site: $Site"
 Write-Host "User: $Username"
@@ -16,46 +18,65 @@ Write-Host "Password: $Password"
 
 Write-Host "Started installation"
 
-$path = Split-Path -parent $MyInvocation.MyCommand.Definition
-
-
-[xml]$config = Get-Content -Path $path/config.xml
-
-
-
-if ($env:PSModulePath -notlike "*$path\Modules\*")
-{
-	"Adding ;$path\Modules to PSModulePath" | Write-Debug 
-	$env:PSModulePath += ";$path\Modules\"
 }
 
-Write-Host $env:PSModulePath
+process
+{
 
-$url = $Tenant + $Site
-
-whoami
-
-
-$encpassword = convertto-securestring -String $Password -AsPlainText -Force
-
-$cred = new-object -typename System.Management.Automation.PSCredential `
-         -argumentlist $Username, $encpassword
+	$path = Split-Path -parent $MyInvocation.MyCommand.Definition
 
 
-Connect-PnPOnline -Url $url -Credentials $cred 
+	$config = [xml](Get-Content $path/config.xml -ErrorAction Stop)
 
-Write-Host "Connected to PnP Online"
 
-Write-Host "Applying template to $url"
 
-Set-PnPTraceLog -On -Level Debug
+	if ($env:PSModulePath -notlike "*$path\Modules\*")
+	{
+		"Adding ;$path\Modules to PSModulePath" | Write-Debug 
+		$env:PSModulePath += ";$path\Modules\"
+	}
 
-$web = Get-PnPWeb
+	Write-Host $env:PSModulePath
 
-Apply-PnPProvisioningTemplate -Web $web -Path "$path\Templates\Home\Home.xml" -ResourceFolder "$path\Templates\Home"
+	$url = $Tenant + $Site
 
-Write-Host "Applied template"
+	$encpassword = convertto-securestring -String $Password -AsPlainText -Force
 
-Write-Host "Completed installation"
+	$cred = new-object -typename System.Management.Automation.PSCredential `
+			 -argumentlist $Username, $encpassword
+
+
+	Connect-PnPOnline -Url $url -Credentials $cred 
+	Write-Host "Connected to PnP Online"
+
+
+	$sitesConfig = $config.Configurations.Configuration.Sites.Site
+
+	foreach ($siteConfig in $sitesConfig)
+	{
+		$web = Get-PnPWeb
+		$template = $sitesConfig.Template
+		
+		Write-Host "Applying template $template to $url"
+		
+		Set-PnPTraceLog -On -Level Debug
+				
+
+		Apply-PnPProvisioningTemplate -Web $web -Path "$path\Templates\$template\Home.xml" -ResourceFolder "$path\Templates\$template"
+
+	}
+
+	
+	
+
+	
+	Write-Host "Applied template"
+
+}
+
+end
+{
+    Write-Host "Completed installation"
+}
 
 
