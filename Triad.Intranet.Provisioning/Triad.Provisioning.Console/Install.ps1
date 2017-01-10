@@ -4,7 +4,9 @@
 
 Param(
   [string]$Tenant,
-  [string]$Site
+  [string]$Site,
+  [string]$Username,
+  [string]$Password
 )
 
 if ($Tenant -eq $null -or $Tenant -eq "")
@@ -15,6 +17,8 @@ if ($Tenant -eq $null -or $Tenant -eq "")
 
 Write-Host "Tenant: $Tenant"
 Write-Host "Site: $Site"
+Write-Host "User: $Username"
+Write-Host "Password: $Password"
 
 Write-Host "Started installation"
 

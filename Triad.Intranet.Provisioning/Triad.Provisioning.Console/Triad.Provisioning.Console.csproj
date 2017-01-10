@@ -62,7 +62,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="config.xml" />
+    <Content Include="config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Modules\SharePointPnPPowerShellOnline\Microsoft.Data.Edm.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
