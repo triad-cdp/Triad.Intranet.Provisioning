@@ -50,12 +50,9 @@ Set-PnPTraceLog -On -Level Debug
 
 $web = Get-PnPWeb
 
-dir "$path\Templates\Home"
-
-
 Apply-PnPProvisioningTemplate -Web $web -Path "$path\Templates\Home\Home.xml" -ResourceFolder "$path\Templates\Home"
 
-Write-Host "Applied"
+Write-Host "Applied template"
 
 Write-Host "Completed installation"
 
