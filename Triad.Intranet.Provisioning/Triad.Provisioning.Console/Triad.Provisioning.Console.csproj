@@ -161,8 +161,23 @@
     <Content Include="Modules\SharePointPnPPowerShellOnline\System.Web.Http.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Templates\Project\Home.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Project\Pages\home.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Projects\Home.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Projects\Pages\home.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Templates\Home\Home.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Templates\Home\Pages\home.aspx">
       <SubType>ASPXCodeBehind</SubType>
@@ -187,6 +202,12 @@
     <None Include="Properties\PublishProfiles\TriadProvisioningConsole20170106013356 - Web Deploy.pubxml" />
     <None Include="Properties\webjob-publish-settings.json" />
     <Content Include="Templates\Home\Home.pnp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Projects\Home.pnp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Project\Home.pnp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

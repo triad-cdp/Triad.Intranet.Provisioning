@@ -11,12 +11,13 @@ Param(
 
 begin
 {
-Write-Host "Tenant: $Tenant"
-Write-Host "Site: $Site"
-Write-Host "User: $Username"
-Write-Host "Password: $Password"
+	Clear-Host
+	Write-Host "Tenant: $Tenant"
+	Write-Host "Site: $Site"
+	Write-Host "User: $Username"
+	Write-Host "Password: $Password"
 
-Write-Host "Started installation"
+	Write-Host "Started installation"
 
 }
 
@@ -38,6 +39,7 @@ process
 
 	Write-Host $env:PSModulePath
 
+	#set the url of the site collection
 	$url = $Tenant + $Site
 
 	$encpassword = convertto-securestring -String $Password -AsPlainText -Force
@@ -54,10 +56,43 @@ process
 
 	foreach ($siteConfig in $sitesConfig)
 	{
-		$web = Get-PnPWeb
-		$template = $sitesConfig.Template
+		$siteUrl = $null
+
+
+		$siteTitle = $siteConfig.Name
+		$siteBaseTemplate = $siteConfig.BaseTemplate
+		$siteUrl = $siteConfig.Url
+
+		if ($siteUrl -eq "")
+		{ 
+			$web = Get-PnPWeb 
+		}
+		else
+		{
+			$web = Get-PnPWeb $siteUrl
+	    }
+
+		if ($web  -eq $null)
+		{
+			$newWebUrl = $siteUrl.Split("/")[$siteUrl.Split("/").Count-1]
+
+			$parentWebUrl = $siteUrl.Replace("/"+$newWebUrl,"")
+			
+			New-PnPWeb -Web $parentWebUrl -Url "$newWebUrl" -Title "$siteTitle" -Template "$siteBaseTemplate"
+			$web = Get-PnPWeb $siteUrl
+
+		}
+
+
+		if ($web  -eq $null)
+		{
+			Write-Error "Failed to find site at $siteUrl"
+			exit
+		}
 		
-		Write-Host "Applying template $template to $url"
+		$template = $siteConfig.Template		
+
+		Write-Host "Applying template $template to $siteUrl"
 		
 		Set-PnPTraceLog -On -Level Debug
 				
