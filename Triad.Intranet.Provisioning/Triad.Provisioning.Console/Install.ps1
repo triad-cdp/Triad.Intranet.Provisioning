@@ -44,8 +44,7 @@ process
 
 	$encpassword = convertto-securestring -String $Password -AsPlainText -Force
 
-	$cred = new-object -typename System.Management.Automation.PSCredential `
-			 -argumentlist $Username, $encpassword
+	$cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $Username, $encpassword
 
 
 	Connect-PnPOnline -Url $url -Credentials $cred 
@@ -69,7 +68,7 @@ process
 		}
 		else
 		{
-			$web = Get-PnPWeb $siteUrl
+			$web = Get-PnPWeb $siteUrl -ErrorAction SilentlyContinue
 	    }
 
 		if ($web  -eq $null)
@@ -111,7 +110,7 @@ process
 
 end
 {
-    Write-Host "Completed installation"
+    Write-Host "Completed installation!"
 }
 
 
