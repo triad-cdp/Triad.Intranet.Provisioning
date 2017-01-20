@@ -1,16 +1,23 @@
 <?xml version="1.0"?>
 <Configurations>
+  <Environments>
+    <Environment Name="Dev1" Tenant="https://dev12345.sharepoint.com" Site="" />
+    <Environment Name="Dev2" Tenant="https://dev67890.sharepoint.com" Site="" />
+    <Environment Name="CustomerTest" Tenant="https://Customer.sharepoint.com" Site="/sites/dev" />
+    <Environment Name="CustomerProduction" Tenant="https://Customer.sharepoint.com" Site=""/>         
+  </Environments>
   <Configuration>
     <Sites>
       <Site Name="Home" Url="" Template="Home" Location="Home" BaseTemplate="ENTERWIKI#0"/>
       <Site Name="Projects" Url="projects" Template="Projects" Location="Projects" BaseTemplate="ENTERWIKI#0"/>
       <Site Name="Project123" Url="projects/project123" Template="Project" Location="Project" BaseTemplate="ENTERWIKI#0"/>
       <Site Name="Project124" Url="projects/project124" Template="Project" Location="Project" BaseTemplate="ENTERWIKI#0"/>
-    </Sites>
-    
+    </Sites>    
     <Databases>
-      <Database>
-        
+      <Database Name="WhatEverDB" ConnectionString="">
+        <QueryFiles>
+          <QueryFile Name="CreateDBs" File="sqlfile.sql" />
+        </QueryFiles>
       </Database>
     </Databases>
   </Configuration>
